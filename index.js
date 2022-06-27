@@ -95,7 +95,7 @@ number.on("contact", async (msg) => {
       keyboard: [[{ text: "Manzilimni ulash", request_location: true }]],
     },
   });
-  console.log(state);
+  // console.log(state);
   return msg.wizard.next();
 });
 const location = new Composer();
@@ -112,7 +112,7 @@ const age = new Composer();
 age.on("text", async (msg) => {
   const about = await msg.update.message.from;
   const text = await msg.update.message.text;
-  console.log(text);
+  // console.log(text);
   if (isFinite(text) && text * 1 > 0 && text * 1 < 100) {
     state.age = text;
     await msg.telegram.sendMessage(about.id, "Sizning yoshiningiz: " + text);
@@ -136,15 +136,15 @@ age.on("text", async (msg) => {
       },
     });
 
-    console.log(state);
+    // console.log(state);
 
     return msg.wizard.next();
   } else msg.telegram.sendMessage(about.id, "qayta uruning!!!");
 });
 const dasturlashTili = new Composer();
 dasturlashTili.on("callback_query", async (msg) => {
-  console.log(state);
-  console.log(msg);
+  // console.log(state);
+  // console.log(msg);
   const about = await msg.update.callback_query.from;
   const text = await msg.update.callback_query.data;
   state.dasturlashTili = text;
@@ -218,7 +218,7 @@ const yuborish = new Composer();
 yuborish.on("callback_query", async (msg) => {
   const about = await msg.update.callback_query.from;
   const text = await msg.update.callback_query.data;
-  console.log(about);
+  // console.log(about);
   const botSaqla = await require("./model/schema");
 
   state.telegramId = about.id;
